@@ -19,16 +19,16 @@ btnAgregar.addEventListener("click", ()=>{
 })
 
 function renderRows(tareas){
-    tbody.innerHTML="";
-    tareas.forEach((tarea) =>{
-        tbody.innerHTML +=
+    let html="";
+    tareas.forEach((tarea)=>{
+        html.innerHTML +=
         `<tr>
         <td>${tarea.id}</td>
         <td>${tarea.nombre} <input id ="complete" type="checkbox" value=${tarea.completada} onclick="completar(${tarea.id})"><button onclick="borrar(${tarea.id})">x</button></td>
         </tr>`;
     });
+    tbody.innerHTML = html
     total.innerHTML = tareas.length
-   renderRows(tareas) 
 }
 
 function borrar(id){
