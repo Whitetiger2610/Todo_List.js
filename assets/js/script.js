@@ -27,8 +27,8 @@ function renderRows(tareas){
         <td>${tarea.nombre} <input id ="complete" type="checkbox" value=${tarea.completada} onclick="completar(${tarea.id})"><button onclick="borrar(${tarea.id})">x</button></td>
         </tr>`;
     });
-    tbody.innerHTML = html
-    total.innerHTML = tareas.length
+    tbody.innerHTML = html;
+    total.innerHTML = tareas.length;
 }
 
 function borrar(id){
