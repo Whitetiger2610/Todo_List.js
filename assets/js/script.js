@@ -10,7 +10,7 @@ const input = document.querySelector("#nuevaTarea")
 
 
 
-btnAgregar.addEventListener("click", ()=>{
+btnAgregar.addEventListener("click",()=>{
     let i = tareas[tareas.length-1].id +10
     nuevatarea = {id: i, nombre: input.value, completada:false}
     tareas.push(nuevatarea)
@@ -19,16 +19,16 @@ btnAgregar.addEventListener("click", ()=>{
 })
 
 function renderRows(tareas){
-    tbody.innerHTML="";
-    tareas.forEach((tarea) =>{
-        tbody.innerHTML +=
+    let html = "";
+    tareas.forEach((tarea)=>{
+        html +=
         `<tr>
         <td>${tarea.id}</td>
         <td>${tarea.nombre} <input id ="complete" type="checkbox" value=${tarea.completada} onclick="completar(${tarea.id})"><button onclick="borrar(${tarea.id})">x</button></td>
         </tr>`;
     });
-    total.innerHTML = tareas.length
-   renderRows(tareas) 
+    tbody.innerHTML= html;
+    total.innerHTML = tareas.length;
 }
 
 function borrar(id){
